@@ -41,11 +41,11 @@ function logUser($email, $password)
 
 function getUser($id) {
     $connexion = connectDb();
-    $sql = 'SELECT * FROM users WHERE id = ' . $id;
-    $stmt = $connexion->prepare($sql);
-    $stmt->execute();
+    $sql = $connexion->prepare('SELECT * FROM users WHERE id = ?');
+    $sql->bindParam(1, $id);
+    $sql->execute();
 
-    return $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $sql->fetchAll(PDO::FETCH_OBJ);
 }
 
 function saveUser($email, $username, $password) {
