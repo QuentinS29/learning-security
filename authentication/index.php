@@ -28,7 +28,7 @@ if (isset($_GET['email']) && isset($_GET['password'])) {
 <div class="container">
     <?php if(!$user): ?>
     <h1>Connexion</h1>
-    <form action="/" method="GET">
+    <form action="/authentication" method="GET">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
